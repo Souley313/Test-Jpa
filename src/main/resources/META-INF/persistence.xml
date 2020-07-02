@@ -4,16 +4,16 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 	version="2.1">
-	<persistence-unit name="compta-pu"
+	<persistence-unit name="biblio-pu"
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<properties>
 			<property name="javax.persistence.jdbc.url"
-				value="jdbc:mysql://u6o9pi5vrttq4zg9:vehs6i1edmgzIKFaRS8q@biir7vufxjtxovfbigk0-mysql.services.clever-cloud.com:3306/biir7vufxjtxovfbigk0?serverTimezone=Europe/Paris" />
+				value="jdbc:mysql://u4arqgzr8rlqpiuv:KRqma4kzT92XkGxMSsZS@bt37s2eutn65xm76ugye-mysql.services.clever-cloud.com:3306/bt37s2eutn65xm76ugye?serverTimezone=Europe/Paris" />
 			<property name="javax.persistence.jdbc.user"
-				value="u6o9pi5vrttq4zg9" />
+				value="u4arqgzr8rlqpiuv" />
 			<property name="javax.persistence.jdbc.password"
-				value="vehs6i1edmgzIKFaRS8q" />
+				value="KRqma4kzT92XkGxMSsZS" />
 			<property name="javax.persistence.jdbc.driver"
 				value="com.mysql.cj.jdbc.Driver" />
 			<property name="hibernate.show_sql" value="true" />

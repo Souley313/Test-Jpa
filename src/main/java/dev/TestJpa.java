@@ -4,9 +4,12 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
+
+import dev.biblio.entities.Livre;
+
+
 
 public class TestJpa {
 
@@ -43,15 +46,11 @@ public class TestJpa {
 		// }
 		// tx.commit();
 
-		// Requête JPQL pour extraire de la base un livre en fonction de son titre.
-		Livre lt = new Livre();
 		TypedQuery<Livre> query1 = entityManager
 				.createQuery("select l from Livre l where l.titre='Du plaisir dans la cuisine'", Livre.class);
 		Livre lt1 = query1.getResultList().get(0);
 		System.out.println(lt1);
 
-		// Requête JPQL pour extraire de la base un livre en fonction de son auteur.
-		Livre la = new Livre();
 		TypedQuery<Livre> query2 = entityManager.createQuery("select la from Livre la where la.auteur='Gaston Pouet'",
 				Livre.class);
 		Livre la1 = query2.getResultList().get(0);
@@ -66,9 +65,8 @@ public class TestJpa {
 		// Affichez la liste de tous les livres présents en base de données (titre et
 		// auteur).
 
-		Livre laf = new Livre();
 		TypedQuery<Livre> query = entityManager.createQuery("select laf from Livre laf", Livre.class);
-		List livres = query.getResultList();
+		List<Livre> livres = query.getResultList();
 		for (Object livre : livres) {
 			System.out.println(livre);
 		}

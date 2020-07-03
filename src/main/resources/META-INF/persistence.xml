@@ -6,7 +6,12 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 	version="2.1">
 	<persistence-unit name="biblio-pu"
 		transaction-type="RESOURCE_LOCAL">
+		<!-- Choix de l'implémentation JPA, ici Hibernate -->
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>banque.entite.Banque</class>
+		<class>banque.entite.Client</class>
+		<class>banque.entite.Compte</class>
+		<class>banque.entite.Operation</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:mysql://u4arqgzr8rlqpiuv:KRqma4kzT92XkGxMSsZS@bt37s2eutn65xm76ugye-mysql.services.clever-cloud.com:3306/bt37s2eutn65xm76ugye?serverTimezone=Europe/Paris" />
@@ -21,4 +26,42 @@ http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
 				value="org.hibernate.dialect.MySQL8Dialect" />
 		</properties>
 	</persistence-unit>
+
+	<persistence-unit name="banque-pu"
+		transaction-type="RESOURCE_LOCAL">
+		<!-- Choix de l'implémentation JPA, ici Hibernate -->
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<properties>
+
+			<!-- regénérer automatiquement le schema à chaque redémarrage de l’application -->
+			<property
+				name="javax.persistence.schema-generation.database.action"
+				value="drop-and-create" />
+
+			<!-- Cette propriété ne créé que les nouvelles tables après chaque redémarrage -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+
+			<!-- Drop and create à chaque redémarrage -->
+			<property
+				name="javax.persistence.schema-generation.database.action"
+				value="drop-and-create" />
+
+			<!-- Affichage des requêtes SQL -->
+			<property name="hibernate.show_sql" value="true" />
+
+			<!-- Paramètres d'accès à la BDD -->
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://uemddje5kjjrdc45:19tmLxuXcAgsN4w9ezC5@biypymk1y7tzewhnsqhu-mysql.services.clever-cloud.com:3306/biypymk1y7tzewhnsqhu?serverTimezone=Europe/Paris" />
+			<property name="javax.persistence.jdbc.user"
+				value="uemddje5kjjrdc45" />
+			<property name="javax.persistence.jdbc.password"
+				value="19tmLxuXcAgsN4w9ezC5" />
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.cj.jdbc.Driver" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQL8Dialect" />
+		</properties>
+	</persistence-unit>
+
 </persistence>
